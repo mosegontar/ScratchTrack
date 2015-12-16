@@ -6,7 +6,7 @@ scripts and text files I have been generating while learning python. It was also
 
 
 ##Running ScratchTrack:
-Download the files and either add them to your PATH to run it from anywhere, or place it in some other directory on your computer and run it by entering `python /your/path/scratchtrack.py`.
+Download the files and either add them to your PATH to run it from anywhere, or place them in some other directory on your computer and run it by entering `python /your/path/scratchtrack.py`.
 
 ScratchTrack will create an appropriately named database file for your current working directory. 
 
