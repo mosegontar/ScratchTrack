@@ -179,6 +179,12 @@ def add_tag(file_name=None, tags=None):
         
         to_file = raw_input("Enter file name to tag\n> ").strip()
 
+        if to_file.lower() == '-v':
+            view_catalog()
+            return
+        else:
+            pass
+
         # check to see if file exists
         try:
             does_to_file_exist = catalog.File.get(catalog.File.file_name == to_file)
