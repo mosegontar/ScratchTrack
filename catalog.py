@@ -321,7 +321,7 @@ def delete_entry(kind, entry, from_file=None):
 
         tag_item.delete_instance()
 
-        print "'%s' deleted from catalog" % entry
+        print "\n'%s' deleted from catalog\n" % entry
 
         all_associations = FileTag.select().join(Tag).where(Tag.tag_name == entry)
         

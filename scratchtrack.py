@@ -92,6 +92,9 @@ def view_catalog(sort_by=None):
     print "VIEWING CATALOG"
     print "---------------"
 
+    if sort_by:
+        sort_by = sort_by.lower()
+
     if not sort_by:
 
         print "Enter 'alpha' to view tags alphabetically"
@@ -108,16 +111,16 @@ def view_catalog(sort_by=None):
             return
         
         else:
-            sort_by = choice.strip()
+            sort_by = choice.strip().lower()
 
 
-    if sort_by.lower() == 'alpha':
+    if sort_by == 'alpha':
 
         print '\nTAGS - Sorted alphabetically\n'
         catalog.view_tags(sort_by)
         print
 
-    elif sort_by.lower() == 'count':
+    elif sort_by == 'count':
         
         print '\nTAGS - Sorted by count\n'
         catalog.view_tags(sort_by)
@@ -189,7 +192,7 @@ def add_tag(file_name=None, tags=None):
         try:
             does_to_file_exist = catalog.File.get(catalog.File.file_name == to_file)
         except:
-            print "%s isn't a file in the catalog!\nEnter -v to see list of files in catalog\n" % to_file
+            print "\n%s isn't a file in the catalog!\nEnter -v to see list of files in catalog\n" % to_file
             return
     
         tag_list = [tag.strip() for tag in raw_input("Enter tags to add to '%s': "  % to_file).split(',')]
@@ -490,7 +493,7 @@ def parse_command(command):
                     print "\nDidn't understand entry! See usage below. Enter -h for further help\n"
                     print menu[directive].__doc__
                 else:
-                    print "\nDidn't understand entry! Enter -h for help"
+                    print "\nDidn't understand entry! Enter -h for help\n"
 
 
     except ValueError:
@@ -515,7 +518,7 @@ def parse_command(command):
                         print menu[directive].__doc__
 
                     else:
-                        print "\nDidn't understand entry! Enter -h for help"
+                        print "\nDidn't understand entry! Enter -h for help\n"
         
         except:
             clear_screen()
