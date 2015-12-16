@@ -30,7 +30,8 @@ class FileTag(BaseModel):
                                                  
 #####################################################
 
-
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def connect_database():
     db.connect()
@@ -132,7 +133,7 @@ def get_entries():
 
 
 def search_tags(logic, tags):
-
+    clear_screen()
     if logic == 'and':
 
         search_with_and = (File
@@ -149,7 +150,7 @@ def search_tags(logic, tags):
         if len(search_with_and) > 0:
            
             print "SEARCH RESULTS:\n"
-            print "Searching for: %s" % (' and '.join(tags))
+            print "Searching for: %s" % (' AND '.join(tags))
 
         print
 
@@ -178,7 +179,7 @@ def search_tags(logic, tags):
         if len(search_with_or) > 0:
 
             print "SEARCH RESULTS:\n"
-            print "Searching for: %s" % (' or '.join(tags))
+            print "Searching for: %s" % (' OR '.join(tags))
         
         print
 
