@@ -15,50 +15,50 @@ For example, if you would like to keep track of the contents of your "Misc_Scrip
 
 ##Usage:
 
-
-`-d: Delete Entry`
-
-    USAGE:
-    -d                       : Shows valid deletion usages
-    -d > file_name > tag(s). : delete tag(s) from file                           
-    -d > *f > file_name(s)   : delete file from catalog
-    -d > *t > tag(s)         : delete tag from catalog entirely; removes associations
-    -d > **f                 : delete files in catalog that are not in CWD
+    -d: Delete Entry
+    
+        USAGE:
+        -d                       : Shows valid deletion usages
+        -d > file_name > tag(s). : delete tag(s) from file                           
+        -d > *f > file_name(s)   : delete file from catalog
+        -d > *t > tag(s)         : delete tag from catalog entirely; removes associations
+        -d > **f                 : delete files in catalog that are not in CWD
   
-`-e: Edit Entry Description`
-
-    USAGE:
-    -e 
-    -e > file_name1, file_name2,... : edit description of file(s)
-`-f: Adds file name to database`
-
-`-h: Help Menu`
-
-`-m: Merge Tags`
-
-    USAGE:
-    -m :               : Launch Merge Entry Menu. 
-    -m > file1 > file2 : Add tags from file1 to file2
+    -e: Edit Entry Description
     
-`-s: Search for Tags`
-
-    USAGE:
-    -s                       : launches search menu
-    -s > and > tag1, tag2... : search for tag(s) using OR logic
-    -s > or > tag1, tag2...  : search for tag(s) using AND logic
+        USAGE:
+        -e 
+        -e > file_name1, file_name2,... : edit description of file(s)
     
-`-t: Add Tag to File`
-
-    USAGE:
-    -t                             : launches add_tag menu
-    -t > filename > tag1, tag2,... : adds tags to file entry
+    -f: Adds file name to database
     
-`-u: Displays new files in CWD if found and old files in catalog if found`
-
-`-v: View Catalog Entries`
-
-    USAGE:
-    -v         : view all entries in catalog
-    -v > alpha : view tags, sorted alphabetically
-    -v > count : view tags, sorted by popularity
+    -h: Help Menu
     
+    -m: Merge Tags
+    
+        USAGE:
+        -m :               : Launch Merge Entry Menu. 
+        -m > file1 > file2 : Add tags from file1 to file2`
+        
+    -s: Search for Tags
+    
+        USAGE:
+        -s                       : launches search menu
+        -s > and > tag1, tag2... : search for tag(s) using OR logic
+        -s > or > tag1, tag2...  : search for tag(s) using AND logic
+            
+    -t: Add Tag to File
+    
+        USAGE:
+        -t                             : launches add_tag menu
+        -t > filename > tag1, tag2,... : adds tags to file entry
+        
+    -u: Displays new files in CWD if found and old files in catalog if found
+    
+    -v: View Catalog Entries
+    
+        USAGE:
+        -v         : view all entries in catalog
+        -v > alpha : view tags, sorted alphabetically
+        -v > count : view tags, sorted by popularity
+        
