@@ -293,7 +293,7 @@ def delete_entry(kind, entry, from_file=None):
 
         to_delete.delete_instance()
 
-        print "\n%s deleted from catalog!" % entry
+        print "\n%s deleted from catalog!\n" % entry
 
     elif kind == 'tag' and from_file:
 
