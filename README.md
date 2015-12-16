@@ -15,9 +15,11 @@ For example, if you would like to keep track of the contents of your "Misc_Scrip
 
 ##Usage:
 
+
 `-d: Delete Entry`
 
     USAGE:
+    -d                       : Shows valid deletion usages
     -d > file_name > tag(s). : delete tag(s) from file                           
     -d > *f > file_name(s)   : delete file from catalog
     -d > *t > tag(s)         : delete tag from catalog entirely; removes associations
