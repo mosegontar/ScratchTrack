@@ -38,7 +38,7 @@ def get_status():
 
 
 def display_status(start=False):
-    """Displays new files in CWD if found and old files in catalog if found"""
+    """Displays new files in CWD if found and old files in catalog if found\n"""
     
     clear_screen()
     
@@ -367,7 +367,7 @@ def delete_entry(target, items=None):
     USAGE:
     -d > file_name > tag(s). : delete tag(s) from file                           
     -d > *f > file_name(s)   : delete file from catalog
-    -d > *t > tag(s)         : delete tag from catalog entirely (deletes it from all associations)
+    -d > *t > tag(s)         : delete tag from catalog entirely; removes associations
     -d > **f                 : delete files in catalog that are not in CWD
     """
 
@@ -519,6 +519,7 @@ def help_menu():
     for key, value in menu.items():
         print "%s: %s" % (key, value.__doc__)
         
+    print
 
 def main_menu():
 
@@ -546,15 +547,15 @@ def main_menu():
 
 
 menu = OrderedDict([
-  ('-f', add_file),
   ('-d', delete_entry),
-  ('-t', add_tag),
-  ('-e', edit_entry),
-  ('-m', merge_tags),
-  ('-v', view_catalog),
-  ('-s', search),
+  ('-e', edit_entry),  
+  ('-f', add_file),
   ('-h', help_menu),
-  ('-u', display_status)])
+  ('-m', merge_tags),
+  ('-s', search),
+  ('-t', add_tag),
+  ('-u', display_status),
+  ('-v', view_catalog)])
 
 
 
