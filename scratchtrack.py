@@ -16,7 +16,7 @@ def clear_screen():
 def get_status():
     """Returns two lists: new files in CWD and old files in catalog"""
     
-    ignore_files = [os.path.basename(__file__), 'scratch_track_catalog.py', db_name]
+    ignore_files = [os.path.basename(__file__), 'catalog.py', db_name]
         
     # gets items in current working directory
     directory_files = []
@@ -140,7 +140,7 @@ def search(logic=None, search_term=None):
 
     if not logic and not search_term:
         
-        print "Enter search type ('and' / 'or'): " 
+        print "Enter search logic ('and' or 'or'): " 
         
         logic = raw_input("> ").lower().strip()
 
