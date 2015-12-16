@@ -367,15 +367,22 @@ def merge_tags(old_file=None, new_file=None):
 
     print
 
-def delete_entry(target, items=None):
+def delete_entry(target=None, items=None):
     """Delete Entry
 
     USAGE:
+    -d                       : Shows valid deletion usages
     -d > file_name > tag(s). : delete tag(s) from file                           
     -d > *f > file_name(s)   : delete file from catalog
     -d > *t > tag(s)         : delete tag from catalog entirely; removes associations
     -d > **f                 : delete files in catalog that are not in CWD
     """
+
+    if not target:
+        clear_screen()
+        print "See deletion usage:\n"
+        print delete_entry.__doc__
+        return
 
     if items:
 
