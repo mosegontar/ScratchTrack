@@ -280,13 +280,8 @@ def delete_entry(kind, entry, from_file=None):
 
         print "\n'%s' deleted from catalog\n" % entry
 
-        all_associations = FileTag.select().join(Tag).where(Tag.tag_name == entry)
-        
-        for i in all_associations:
-            print i
-
     else:
-        print "Delete Entry Error: Sorry! There's a problem somewhere"
+        pass
 
 def clean_db():
 
