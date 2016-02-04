@@ -29,7 +29,14 @@ class Viewer(object):
     def view_full_catalog(self, args):
         """Shows every file in catalog, along with its description, tags, and date created"""
 
-        catalog.view_all_entries()
+        entries = catalog.view_all_entries()
+
+        for entry in entries:
+            print 'File: %s' % entry[0]
+            print 'Description: %s' % entry[1]
+            print 'Created on: %s' % entry[2]
+            print 'Tags: %s' % entry[3] 
+            print        
 
     def view_all_tags(self, args):
         """Shows a list of tags, sorted either by count or alphabetically"""
@@ -39,8 +46,14 @@ class Viewer(object):
         else:
             sort_by = 'alpha'
 
-        catalog.view_tags(sort_by)
+        tags = catalog.view_tags(sort_by)
 
+        for tag in tags:
+
+            if type(tag) == tuple:
+                print tag[0], "(%d)" % tag[1]
+            else:
+                print tag
 
     def search_tags(self, args):
         """
@@ -56,4 +69,12 @@ class Viewer(object):
         
         search_term_list = [term.strip() for term in args.tags]
 
-        catalog.search_tags(search_term_list, logic.lower())
+        results = catalog.search_tags(search_term_list, logic.lower())
+        
+        for result in results:
+            print 'File: %s' % result[0]
+            print 'Description: %s' % result[1]
+            print 'Created on: %s' % result[2]
+            print 'Tags: %s' % result[3] 
+            print     
+        

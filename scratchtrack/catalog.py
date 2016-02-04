@@ -33,13 +33,16 @@ def view_all_entries():
     
     ordered_list = sorted([f for f in File.select()])
 
+    entries = []
     for f_name in ordered_list:
-        print 'File: %s' % f_name.file_name
-        print 'Description: %s' % f_name.description
-        print 'Created on: %s' % f_name.date_created
-        print 'Tags: %s' % ' | '.join(sorted(files_with_tags.get(f_name.file_name, '')))
-        print
+        f_name.file_name
+        f_name.description
+        f_name.date_created
+        tags = ' | '.join(sorted(files_with_tags.get(f_name.file_name, '')))
 
+        entries.append((f_name.file_name, f_name.description, f_name.date_created, tags))
+
+    return entries
 
 def view_tags(sort_by):
 
@@ -52,10 +55,8 @@ def view_tags(sort_by):
             .group_by(Tag))
 
         tags_in_use_list = sorted([t.tag_name for t in tags_in_use])
-
-        for t in tags_in_use_list:
-            print t
         
+        return tags_in_use_list
 
     elif sort_by == 'count':
         
@@ -68,9 +69,13 @@ def view_tags(sort_by):
                         .group_by(Tag)
                         .order_by(count.desc(), Tag.tag_name))
 
+        tags_and_counts = []
+
         for tag in tags_with_counts:
-            print "%s (%d)" % (tag.tag_name, FileTag.select().where(FileTag.tag_id == tag).count())
-            
+            tag_name, count =  (tag.tag_name, FileTag.select().where(FileTag.tag_id == tag).count())
+            tags_and_counts.append((tag_name, count))
+        
+        return tags_and_counts
 
 def get_tags(file_name):
 
@@ -118,16 +123,7 @@ def search_tags(tags, logic):
                             .group_by(File)
                             .having(fn.COUNT(File.id) == len(tags)))
 
-        #print "Searching for: %s" % (' AND '.join(tags))
-
-        for result in search_with_and:
-            
-            print "File: %s" % result.file_name
-            print "Description: %s" % result.description
-            print "Date Created: %s" % result.date_created
-            
-            tags = view_tags(result.file_name)
-            print "Tags: %s" % (' | '.join(sorted(tags)))
+        search_results = search_with_and
 
 
     elif logic == 'or':
@@ -138,22 +134,26 @@ def search_tags(tags, logic):
                             .join(Tag)
                             .where(
                                 (Tag.tag_name << tags))
-                            .group_by(File))
-        
-        #print "Searching for: %s" % (' OR '.join(tags))
-        
-        
-        for result in search_with_or:
-            
-            print "File: %s" % result.file_name
-            print "Description: %s" % result.description
-            print "Date Created: %s" % result.date_created
-            
-            tags = view_tags(result.file_name)
-            print "Tags: %s" % (' | '.join(sorted(tags)))
+                            .group_by(File))  
 
+        search_results = search_with_or      
+    
     else:
         pass
+
+    results = []
+    for result in search_results:
+        
+        result.file_name
+        result.description
+        result.date_created
+        
+        tags = get_tags(result.file_name)
+        tag_list = ' | '.join(sorted(tags))
+
+        results.append((result.file_name, result.description, result.date_created, tag_list))
+
+    return results        
 
 
 def add_tag(tag):

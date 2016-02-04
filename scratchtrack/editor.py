@@ -14,7 +14,7 @@ class Editor(object):
         file_name = args.filename.strip()
 
         if file_name not in self.new_files:
-            print "'%s' either already in catalog or not in the CWD\n" % file_name
+            print "Sorry! '%s' either already in catalog or not in the CWD\n" % file_name
             return
             
 
@@ -31,7 +31,7 @@ class Editor(object):
         try:
             current_file = catalog.File.get(catalog.File.file_name == file_name)
         except:
-            print "\nSorry! %s not in catalog! Enter -v to see list of files in catalog\n" % file_name
+            print "\nSorry! %s isn't in catalog!" % file_name
             return
 
         for tag in tag_list:
@@ -41,7 +41,6 @@ class Editor(object):
             else:
                 current_tag, new_tag = catalog.add_tag(tag)
                 catalog.tag_a_file(current_file, current_tag, new_tag)
-                print
 
     def edit_entry(self, args):
         """Edit file description"""
