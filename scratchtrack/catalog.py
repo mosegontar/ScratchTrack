@@ -18,7 +18,6 @@ def view_all_entries():
               .join(File)
               .order_by(File.file_name))
 
-    last_entry = None
 
     files_with_tags = {}
 
@@ -26,8 +25,6 @@ def view_all_entries():
  
         f = file_tag.file_id
         tag = file_tag.tag_id.tag_name
-        if f != last_entry:
-            last_entry = f
 
         files_with_tags.setdefault(f.file_name, []).append(tag)
     
@@ -231,15 +228,13 @@ def edit_description(file_name):
             f.save()
             
             print "\nNew Description Saved to %s!" % f.file_name
-            print
         
         else:
-            print "\Skipped! You didn't say (Y)ES \n"
-
-    
+            pass
+            
     except:
         
-        print "Whoops. %s not in catalog files. Enter -v to see list of all catalog files" % file_name
+        print "Whoops. %s not in catalog files." % file_name
 
 
 def delete_entry(kind, entry, from_file=None):
