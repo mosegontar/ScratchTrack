@@ -1,7 +1,7 @@
 import os
 import datetime
 
-from models import *
+from models import db, File, Tag, FileTag
 
 def connect_database():
 
@@ -231,7 +231,7 @@ def edit_description(file_name):
         
         else:
             pass
-            
+
     except:
         
         print "Whoops. %s not in catalog files." % file_name

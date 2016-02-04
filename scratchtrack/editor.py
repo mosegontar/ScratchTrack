@@ -14,13 +14,14 @@ class Editor(object):
         file_name = args.filename.strip()
 
         if file_name not in self.new_files:
+        
             print "Sorry! '%s' either already in catalog or not in the CWD\n" % file_name
-            return
+        
+        else:
             
+            description = raw_input("Enter file description: ")
 
-        description = raw_input("Enter file description: ")
-
-        current_file = catalog.add_file(file_name, description)
+            current_file = catalog.add_file(file_name, description)
 
     def add_tag(self, args):
         """Add tag(s) to a file"""

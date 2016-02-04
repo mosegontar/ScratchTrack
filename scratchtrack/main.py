@@ -77,12 +77,16 @@ class Parser(object):
 
         args.func(args)
 
+def run():
+
+    parser = Parser()
+    parser.arg_parser()
+
 
 
 if __name__ == '__main__':
     
-    main = Parser()
-    main.arg_parser()
+    run()
     
 
 
