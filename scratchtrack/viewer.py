@@ -2,9 +2,10 @@ import catalog
 from catalog_data import CatalogData
 
 class Viewer(object):
+    """This class retrieves and displays all 'viewable' data from the working database"""
 
     def __init__(self):
-        self.state = CatalogData()
+        self.state = CatalogData() # gets the current state of the database
         self.new_files, self.old_files = self.state.get_status()
     
     def status(self, args):
@@ -50,16 +51,13 @@ class Viewer(object):
 
         for tag in tags:
 
-            if type(tag) == tuple:
-                print tag[0], "(%d)" % tag[1]
-            else:
-                print tag
+            print tag
 
     def search_tags(self, args):
         """
         Searches for files based on tag queries.
 
-        Default logic is "and" but optional argument [-o] searches with 'or' logic
+        Default uses the AND logical operator but optional argument [-o] uses OR
         """
         
         if args.o:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name = 'scratchtrack'
@@ -9,7 +9,7 @@ setup(
     url = 'https://github.com/mosegontar/ScratchTrack.git'
     description = 'Tag and track miscellaneous files in local directories'
     license = 'MIT'
-    packages = find_packages()
+    packages = ['scratchtrack']
     install_requires = []
     entry_points = {
         'console_scripts': ['strack = scratchtrack.main:run]

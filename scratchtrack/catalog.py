@@ -1,6 +1,6 @@
 import os
 import datetime
-
+from peewee import *
 from models import db, File, Tag, FileTag
 
 def connect_database():
@@ -70,7 +70,7 @@ def view_tags(sort_by):
 
         for tag in tags_with_counts:
             tag_name, count =  (tag.tag_name, FileTag.select().where(FileTag.tag_id == tag).count())
-            tags_and_counts.append((tag_name, count))
+            tags_and_counts.append(tag_name+' '+'(%d)' % count)
         
         return tags_and_counts
 

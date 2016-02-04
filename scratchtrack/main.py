@@ -13,10 +13,11 @@ from editor import Editor
 
      
 
-class Parser(object):
+class Connection(object):
 
     def __init__(self):
-        
+        """Initializes connection to database and parses command line arguments"""
+
         catalog.connect_database()
         catalog.clean_db()
         self.viewer = Viewer()
@@ -78,9 +79,10 @@ class Parser(object):
         args.func(args)
 
 def run():
-
-    parser = Parser()
-    parser.arg_parser()
+    """Runs the program!"""
+    
+    connection = Connection()
+    connection.arg_parser()
 
 
 

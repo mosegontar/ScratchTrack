@@ -4,6 +4,7 @@ from catalog_data import CatalogData
 class Editor(object):
 
     def __init__(self):
+        """This class provides methods to manipulate the data in the database/catalog"""
 
         self.state = CatalogData()
         self.new_files, self.old_files = self.state.get_status()
@@ -136,16 +137,19 @@ class Editor(object):
         except:
             print "Sorry! '%s' isn't  in the catalog" % args.dest
             return
-    
-        source_file_tags = set(catalog.get_tags(args.source))
-        dest_file_tags = set(catalog.get_tags(args.dest))
+        
+        # creates sets of tags associated with source file and destination file respectively
+        source_file_tags = set(catalog.get_tags(args.source)) 
+        dest_file_tags = set(catalog.get_tags(args.dest)) 
 
-        union_of_source_dest_tags = source_file_tags.union(dest_file_tags)
+        # union of source and dest tags; these will now all be associated with the destination file
+        union_of_source_dest_tags = source_file_tags.union(dest_file_tags) 
 
-        current_file = catalog.File.get(catalog.File.file_name == args.dest)
+        # get the destination file's entry in the database
+        destination_file = catalog.File.get(catalog.File.file_name == args.dest) 
 
         # take tags unique to source file and give them to destination file 
         for tag in union_of_source_dest_tags:
             tag = catalog.Tag.get(catalog.Tag.tag_name == tag)
-            catalog.tag_a_file(current_file, tag, False)
+            catalog.tag_a_file(destination_file, tag, False)
         
