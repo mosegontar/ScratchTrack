@@ -1,12 +1,8 @@
 import catalog
-from catalog_data import CatalogData
+from interface import Interface
 
-class Viewer(object):
+class Viewer(Interface):
     """This class retrieves and displays all 'viewable' data from the working database"""
-
-    def __init__(self):
-        self.state = CatalogData() # gets the current state of the database
-        self.new_files, self.old_files = self.state.get_status()
     
     def status(self, args):
         """Displays new files (uncataloged files), and expired files (files no longer in CWD)"""

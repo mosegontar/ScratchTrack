@@ -1,13 +1,7 @@
 import catalog
-from catalog_data import CatalogData
+from interface import Interface
 
-class Editor(object):
-
-    def __init__(self):
-        """This class provides methods to manipulate the data in the database/catalog"""
-
-        self.state = CatalogData()
-        self.new_files, self.old_files = self.state.get_status()
+class Editor(Interface):
 
     def add_files(self, args):
         """Add an uncataloged file from CWD to catalog"""

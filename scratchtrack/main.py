@@ -1,29 +1,24 @@
 #!/usr/bin/env python
 
-import sys
-import os
 import argparse
 
 from peewee import *
 import catalog
 
-from catalog_data import CatalogData
 from viewer import Viewer
 from editor import Editor
 
-     
 
 class Connection(object):
 
     def __init__(self):
-        """Initializes connection to database and parses command line arguments"""
+        """Initializes connection to database and parses command line args"""
 
         catalog.connect_database()
         catalog.clean_db()
         self.viewer = Viewer()
         self.editor = Editor()
    
-
     def arg_parser(self):
         """Parses command line arguments"""
         print
