@@ -7,4 +7,3 @@ Installation from source:
 
     git clone https://github.com/mosegontar/ScratchTrack.git
     python install setup.py
-    `
