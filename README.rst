@@ -27,7 +27,7 @@ Check which files in your CWD are not in the directory's Scratch Track catalog:
 
 .. code:: bash
 
-    strack bash
+    strack status
 
 Add a file as an entry to the catalog:
 
