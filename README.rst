@@ -21,7 +21,7 @@ Get help!
 
 .. code:: bash
 
-    strack -h
+    strack [-h]
 
 Check which files in your CWD are not in the directory's Scratch Track catalog:
 
@@ -29,15 +29,28 @@ Check which files in your CWD are not in the directory's Scratch Track catalog:
 
     strack status
 
-Add a file as an entry to the catalog:
+Add a file as an entry and a description to the catalog:
 
 .. code:: bash
 
-    strack addfile file_Name
+    strack addfile file_name
 
 Tag a file!
 
 .. code:: bash
 
-    strack addtags filename -t tag1 tag2 'tag 3'
+    strack addtags file_name -t tag1 tag2 'tag 3'
+
+View all entries in the catalog:
+
+.. code:: bash
+
+    strack catalog
+
+View a list of all tags (default sort by count, optional argument -a sorts alphabetically):
+
+.. code:: bash
+
+    strack tags [-a]
+
 
