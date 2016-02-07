@@ -49,6 +49,8 @@ Tag a file!
 
 Merge tags from one file (the 'source') with those of another (the 'destination'):
 
+.. code:: bash
+
     strack merge --source file_name1 --dest file_name2 
 
 View a list of all tags (default sort by count, optional argument -a sorts alphabetically):
