@@ -8,6 +8,8 @@ When it's run, Scratch Track creates a hidden .db file in your current working d
 
 Installation from source:
 
+    cd to the directoy where you wish to place the source files
+    
 .. code:: bash
 
     git clone https://github.com/mosegontar/ScratchTrack.git
