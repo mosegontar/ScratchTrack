@@ -21,7 +21,7 @@ class Editor(Interface):
             catalog.add_file(file_name, description)
 
     def add_tag(self, args):
-        """Add tag(s) to a file"""
+        """Add tag(s) to a file."""
 
         file_name = args.filename.strip()
         tag_list = [tag.strip() for tag in args.tags]
@@ -47,10 +47,10 @@ class Editor(Interface):
 
     def clean_catalog(self, args):
         """
-        Removes all expired entries from catalog
+        Removes all expired entries from catalog.
 
-        If optional argument [-t] used,
-        removes listed tags from entire catalog
+        If optional [-t] used,
+        removes listed tags from entire catalog.
         """
 
         if not self.old_files:
@@ -93,11 +93,11 @@ class Editor(Interface):
 
     def delete_entry(self, args):
         """
-        Removes specified file from catalog
+        Removes specified file from catalog.
 
-        If optional argument [-t] used,
+        If optional [-t] used,
         removes tags from their association with specified file
-        (file remains in catalog)
+        (file remains in catalog).
         """
 
         file_name = args.file.strip()

@@ -64,7 +64,7 @@ class Viewer(Interface):
         Searches for files based on tag queries.
 
         Default uses the AND logical operator
-        but optional argument [-o] uses OR
+        but option [-o] uses OR
         """
 
         if args.o:

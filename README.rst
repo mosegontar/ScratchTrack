@@ -17,7 +17,7 @@ Installation from source:
 Usage
 =====
 
-Get help!
+Get help and usage directions!
 
 .. code:: bash
 
@@ -35,22 +35,53 @@ Add a file as an entry and a description to the catalog:
 
     strack addfile file_name
 
-Tag a file!
-
-.. code:: bash
-
-    strack addtags file_name -t tag1 tag2 'tag 3'
-
 View all entries in the catalog:
 
 .. code:: bash
 
-    strack catalog
+    strack catalog    
+
+Tag a file!
+
+.. code:: bash
+
+    strack addtags file_name -t tag1 [tag2 'tag 3' ...]
+
+Merge tags from one file (the 'source') with those of another (the 'destination'):
+
+    strack merge --source file_name1 --dest file_name2 
 
 View a list of all tags (default sort by count, optional argument -a sorts alphabetically):
 
 .. code:: bash
 
     strack tags [-a]
+
+Search for files based on tag queries (default search uses AND operator, but option [-o] uses operator ): 
+
+.. code:: bash
+
+    strack search -t tag1 [tag2 ...] [-o]
+
+Edit an existing catalog file's description:
+
+.. code:: bash
+
+    strack edit file_name
+
+Remove all expired entries from catalog. If option [-t] used, removes listed tags from catalog entirely
+
+.. code:: bash
+
+    strack clean [-t tag1 [tag2 ... ]]
+
+Delete a specific file from catalog. If option [-t] used, the file remains in the catalog but listed tags are no longer associated with that file.
+
+.. code:: bash
+
+    strack delete file_name [-t tag1 [tag2 ...]]
+
+
+
 
 
