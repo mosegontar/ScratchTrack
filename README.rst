@@ -10,9 +10,9 @@ Installation from source:
 
 .. code:: bash
 
-    $ cd some_directory
     $ git clone https://github.com/mosegontar/ScratchTrack.git
-    $ python install setup.py
+    $ cd ScratchTrack
+    $ pip install .
 
 =====
 Usage
