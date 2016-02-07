@@ -46,7 +46,7 @@ Tag a file!
 
 .. code:: bash
 
-    $ strack addtags file_name -t tag1 [tag2 'tag 3' ...]
+    $ strack addtags file_name -t tag1 [tag2 "tag 3" ...]
 
 Merge tags from one file (the 'source') with those of another (the 'destination'):
 
