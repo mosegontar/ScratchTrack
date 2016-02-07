@@ -2,9 +2,9 @@
 Scratch Track
 *************
 
-Scratch Track is a simple command line program for tagging and tracking files in your local directories. It was motived by the desire to keep track of scratch files I was generating while learning Python.
+Scratch Track is a simple command line program for tagging and tracking files in your local directories. It was motived by the desire to keep track of the many scratch files I was generating while learning Python.
 
-When it's run, Scratch Track creates a hidden .db file in your current working directory (named '.the_name_of_your_cwd_st.db'). 
+When it's run, Scratch Track creates a hidden .db file in your current working directory (named '.the_name_of_your_cwd_st.db'). You can then add files to this 'catalog', allowing you to keep track of your files, tag them, and search for specific files by querying tags. 
 
 Installation from source:
 
