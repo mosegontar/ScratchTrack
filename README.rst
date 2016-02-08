@@ -60,7 +60,7 @@ View a list of all tags (default sort by count, optional argument -a sorts alpha
 
     $ strack tags [-a]
 
-Search for files based on tag queries (default search uses AND operator, but option [-o] uses operator ): 
+Search for files based on tag queries (default search uses AND operator, but option [-o] uses OR operator: 
 
 .. code:: bash
 
