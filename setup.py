@@ -10,7 +10,7 @@ setup(
     description = 'Tag and track miscellaneous files in local directories',
     license = 'MIT',
     packages = ['scratchtrack'],
-    install_requires = [peewee],
+    install_requires = ['peewee'],
     entry_points = {
         'console_scripts': ['strack = scratchtrack.main:run']
     }
